@@ -1,0 +1,70 @@
+import com.manning.gia.vm.Vagrant
+
+ext.targetedVagrantProjectDir = file('../vagrant-azure')
+
+task vagrantUp(type: Vagrant) {
+    commands = ['up']
+    dir = targetedVagrantProjectDir
+	
+}
+
+task vagrantReload(type: Vagrant) {
+    commands = ['reload']
+    dir = targetedVagrantProjectDir
+}
+
+
+task vagrantSshConfig(type: Vagrant) {
+    commands = ['ssh-config']
+    dir = targetedVagrantProjectDir
+}
+
+task vagrantStatus(type: Vagrant) {
+    commands = ['status']
+    dir = targetedVagrantProjectDir
+}
+
+task vagrantProvision(type: Vagrant) {
+    commands = ['provision']
+    dir = targetedVagrantProjectDir
+}
+
+task vagrantSuspend(type: Vagrant) {
+    commands = ['suspend']
+    dir = targetedVagrantProjectDir
+} 
+
+task vagrantResume(type: Vagrant) {
+    commands = ['resume']
+    dir = targetedVagrantProjectDir
+}
+
+task vagrantHalt(type: Vagrant) {
+    commands = ['halt']
+    dir = targetedVagrantProjectDir
+}
+
+
+task vagrantRdp(type: Vagrant) {
+    commands = ['rdp']
+    dir = targetedVagrantProjectDir
+}
+
+
+task vagrantTests(type: Vagrant){
+		commands = ['destroy', '--force']
+		dir = targetedVagrantProjectDir
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -34,6 +34,11 @@ Vagrant-Gradle Acceptance Test:
 	Execute following Commands
 	graldew wrapper : This will build all the required files
 	gradlew vagrantWindowsTest : This command will start the vagrant automation by executing various vagrant commands in a sequential order.
+	
+	
+Note:
+
+1. SSL Certificate has to be added manually for provision to work as expected.
 
 
 

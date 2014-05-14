@@ -1,0 +1,44 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+#Vagrant.require_plugin 'vagrant-azure'
+Vagrant.configure('2') do |config|
+  config.vm.box ='azuresync'
+  
+  config.vm.provider :azure do |azure|  
+	azure.storage_acct_name = 'vagazure'
+    azure.storage_access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    azure.mgmt_certificate = 'C:/Vagrant/Gradle-Vagrant/vagrant-azure-master/Azure.pfx'
+    azure.mgmt_endpoint = 'https://management.core.windows.net'
+	azure.subscription_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    azure.vm_name = 'vagsync'
+    azure.vm_user = 'vagrant'
+    azure.vm_password = 'vagrant@123'
+    azure.vm_image = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' #any linux image with puppet and chef installed
+    azure.vm_location = 'West US'
+    azure.cloud_service_name = 'vagubuntu'
+    azure.deployment_name = 'vagrant'    
+    azure.tcp_endpoints = '3389:62249'
+    azure.ssh_private_key_file = 'D:/chapter15_azure/vagrant-azure-linux/AzureKeys/mykey.key'
+    azure.ssh_certificate_file = 'D:/chapter15_azure/vagrant-azure-linux/AzureKeys/mykey.pem'
+    azure.ssh_port = 22
+    #azure.add_role = false
+	#azure.state_read_timeout = 360
+	#azure.winrm_transport = [ 'http', 'https' ]
+	#azure.winrm_https_port = '5984'
+  end
+  
+  config.ssh.username = 'vagrant'
+  config.ssh.password = 'vagrant@123'
+  
+  config.vm.guest = :linux 
+  
+  config.vm.synced_folder "C:/Share", "/home/vagrant/share", :type => :rsync  
+  
+ config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = 'puppet/manifests'
+    puppet.manifest_file = 'site.pp'
+    puppet.module_path = 'puppet/modules'
+	puppet.synced_folder_type = "rsync"	
+  end
+
+end

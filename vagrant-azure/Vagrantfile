@@ -1,0 +1,50 @@
+Vagrant.configure('2') do |config|
+    config.vm.box = 'azuremaster'
+	#config.vm.box_url = "C:/Vagrant/Gradle-Vagrant/vagrant-azure-master/azuremaster.box"
+
+    config.vm.provider :azure do |azure|	
+		azure.storage_acct_name = 'vagazure'	
+		azure.mgmt_certificate = 'C:/Vagrant/Gradle-Vagrant/vagrant-azure-master/Azure.pfx'
+        azure.mgmt_endpoint = 'https://management.core.windows.net'
+        azure.subscription_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+        
+		azure.vm_name = 'vagmaster'		
+        azure.vm_user = 'vagrant' 
+        azure.vm_password = 'Vagrant@123' 
+		
+		azure.vm_image = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' #any windows image which has puppet agent and chef installed
+        azure.vm_location = 'West US' 
+        azure.cloud_service_name = 'vagmaster1' 	
+        azure.deployment_name = 'vagrantdep'      
+		
+        #azure.ssh_private_key_file = 'C:/Acceptance Test/vagrant-azure-master/AzureVagKeys/mykey.key'
+        #azure.ssh_certificate_file = 'C:/Acceptance Test/vagrant-azure-master/AzureVagKeys/mykey.pem'
+
+        # Provide the following values if creating a *Nix VM
+        #azure.ssh_port = '22'
+
+        # Provide the following values if creating a Windows VM
+        azure.winrm_transport = [ 'http', 'https' ] 
+        #azure.winrm_https_port = 'A VALID PUBLIC PORT' 
+        #azure.winrm_http_port = 'A VALID PUBLIC PORT' 
+
+        azure.tcp_endpoints = '3389:54589' 
+    end
+
+    config.ssh.username = 'vagrant' 
+    config.ssh.password = 'Vagrant@123'
+	
+	config.vm.provision "shell",inline: "Get-ExecutionPolicy"  
+
+
+	config.vm.provision :puppet do |puppet|
+		puppet.manifests_path = 'puppet/manifests'
+		puppet.manifest_file = 'site.pp'    
+	end
+  
+	config.vm.provision :chef_solo do |chef|
+		chef.cookbooks_path = "cookbooks"	
+		chef.add_recipe "file"  	
+	end
+	
+end
