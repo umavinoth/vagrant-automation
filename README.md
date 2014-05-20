@@ -31,7 +31,7 @@ Vagrant-Gradle Acceptance Test:
 
 	4.	Cd to the path where build.gradle file is located.
 		Execute following Commands
-			graldew wrapper : This will build all the required files
+			gradlew wrapper : This will build all the required files
 			gradlew vagrantWindowsTest : This command will start the vagrant automation by 
 			executing various vagrant commands in a sequential order.
 	
