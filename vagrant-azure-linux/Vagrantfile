@@ -7,7 +7,7 @@ Vagrant.configure('2') do |config|
   config.vm.provider :azure do |azure|  
 	azure.storage_acct_name = 'vagazure'
     azure.storage_access_key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    azure.mgmt_certificate = 'C:/Vagrant/Gradle-Vagrant/vagrant-azure-master/Azure.pfx'
+    azure.mgmt_certificate = 'C:/Vagrant/Azure.pfx'
     azure.mgmt_endpoint = 'https://management.core.windows.net'
 	azure.subscription_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     azure.vm_name = 'vagsync'
@@ -18,8 +18,8 @@ Vagrant.configure('2') do |config|
     azure.cloud_service_name = 'vagubuntu'
     azure.deployment_name = 'vagrant'    
     azure.tcp_endpoints = '3389:62249'
-    azure.ssh_private_key_file = 'D:/chapter15_azure/vagrant-azure-linux/AzureKeys/mykey.key'
-    azure.ssh_certificate_file = 'D:/chapter15_azure/vagrant-azure-linux/AzureKeys/mykey.pem'
+    azure.ssh_private_key_file = 'D:/vagrant-azure-linux/mykey.key'
+    azure.ssh_certificate_file = 'D:/vagrant-azure-linux/mykey.pem'
     azure.ssh_port = 22
     #azure.add_role = false
 	#azure.state_read_timeout = 360

@@ -6,7 +6,7 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
 class Vagrant extends DefaultTask {
-    static final String VAGRANT_EXECUTABLE = 'D:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
+    static final String VAGRANT_EXECUTABLE = ''
 
     @Input
     List<String> commands
