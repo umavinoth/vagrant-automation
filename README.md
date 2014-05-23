@@ -30,7 +30,9 @@ Steps to Run Vagrant-Gradle Acceptance Test:
         static final String VAGRANT_EXECUTABLE = 'vagrant executable path' /* Ex:C:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
         Include the path where vagrantfile resides in build.gradle file.
              ext.targetedVagrantProjectDir = file('../vagrant-azure')
-	File Dependencies:
+             
+File Dependencies:
+
         Include gradle directory, gradlew.bat and gradlew files from following link
         https://github.com/bmuschko/gradle-in-action-source
         to vagrant-gradle-wrapper directory in the source.
