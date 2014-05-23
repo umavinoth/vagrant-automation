@@ -13,8 +13,7 @@ Vagrant Setup:
         This will place a vagrant-azure.gem.
         Execute vagrant plugin install vagrant-azure.gem. 
         This will install vagrant-azure plugin.
-        Create a box file for azure provider and add the box to the vagrant.
-
+        
 Gradle Setup:
 
         Install Java JDK  and set following environment variable.
@@ -30,6 +29,8 @@ Steps to Run Vagrant-Gradle Acceptance Test:
         static final String VAGRANT_EXECUTABLE = 'vagrant executable path' /* Ex:C:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
         Include the path where vagrantfile resides in build.gradle file.
              ext.targetedVagrantProjectDir = file('../vagrant-azure')
+        Create a box file for azure provider and add the box to the vagrant.
+
              
 File Dependencies:
 
