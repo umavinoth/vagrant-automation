@@ -12,7 +12,7 @@ task vagrantReload(type: Vagrant) {
     commands = ['reload']
     dir = targetedVagrantProjectDir
 }
-
+vagrantReload.depensOn vagrantUp
 
 task vagrantSshConfig(type: Vagrant) {
     commands = ['ssh-config']
@@ -23,12 +23,13 @@ task vagrantStatus(type: Vagrant) {
     commands = ['status']
     dir = targetedVagrantProjectDir
 }
+vagrantStatus.depensOn vagrantReload
 
 task vagrantProvision(type: Vagrant) {
     commands = ['provision']
     dir = targetedVagrantProjectDir
 }
-
+vagrantProvision.depensOn vagrantStatus
 task vagrantSuspend(type: Vagrant) {
     commands = ['suspend']
     dir = targetedVagrantProjectDir
@@ -39,23 +40,25 @@ task vagrantResume(type: Vagrant) {
     dir = targetedVagrantProjectDir
 }
 
-task vagrantHalt(type: Vagrant) {
-    commands = ['halt']
-    dir = targetedVagrantProjectDir
-}
+vagrantRdp.dependsOn vagrantProvision
 
 
 task vagrantRdp(type: Vagrant) {
     commands = ['rdp']
     dir = targetedVagrantProjectDir
 }
+vagrantHalt.dependsOn vagrantRdp
 
 
+task vagrantHalt(type: Vagrant) {
+    commands = ['halt']
+    dir = targetedVagrantProjectDir
+}
 task vagrantTests(type: Vagrant){
 		commands = ['destroy', '--force']
 		dir = targetedVagrantProjectDir
 }
-
+vagrantTests.dependsOn vagrantHalt
 
 
 
