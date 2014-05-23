@@ -27,14 +27,13 @@ Steps to Run Vagrant-Gradle Acceptance Test:
         Download Vagrant-Automation code for acceptance testing.
         Unzip the folder and modify the  vagrant.groovy file as below
         @Input
-        static final String VAGRANT_EXECUTABLE = 'vagrant executable path' /* Ex:      'C:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
+        static final String VAGRANT_EXECUTABLE = 'vagrant executable path' /* Ex:C:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
         Include the path where vagrantfile resides in build.gradle file.
              ext.targetedVagrantProjectDir = file('../vagrant-azure')
-File Dependencies:
+	File Dependencies:
         Include gradle directory, gradlew.bat and gradlew files from following link
         https://github.com/bmuschko/gradle-in-action-source
         to vagrant-gradle-wrapper directory in the source.
-        
         Cd to the path where build.gradle file is located.
         Execute following Commands    
              gradlew wrapper : This will build all the required files.
