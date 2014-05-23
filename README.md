@@ -2,16 +2,16 @@ Vagrant-automation
 ==================
 Vagrant Setup:
 
-        Install Vagrant 1.5.3 msi                
+        Install Vagrant 1.5.3 msi.                
         Override the default provider of Vagrant i.e virtualbox  by  adding below 
-        environment variable
+        environment variable.
                 VAGRANT_DEFAULT_PROVIDER= azure 
         Download  Vagrant-azure gemspec from following link
         https://github.com/MSOpenTech/vagrant-azure
-        Execute gem build vagrant-azure.gemspec in the source directory
-        This will place a vagrant-azure.gem
+        Execute gem build vagrant-azure.gemspec in the source directory.
+        This will place a vagrant-azure.gem.
         Execute vagrant plugin install vagrant-azure.gem. 
-        This will install vagrant-azure plugin
+        This will install vagrant-azure plugin.
         Create a box file for azure provider and add the box to the vagrant.
 
 Gradle Setup:
@@ -38,7 +38,7 @@ File Dependencies:
 
         Include gradle directory, gradlew.bat and gradlew files from following link
         https://github.com/bmuschko/gradle-in-action-source
-        to vagrant-gradle-wrapper directory in the source 
+        to vagrant-gradle-wrapper directory in the source.
         
 Note:
 
