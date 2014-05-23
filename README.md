@@ -2,7 +2,8 @@ Vagrant-automation
 ==================
 Vagrant Setup:
 
-        Install Vagrant 1.5.3 msi.                
+        Install Vagrant 1.5.3 msi. 
+        Install Ruby 2.0.0 and corresponding devkit.
         Override the default provider of Vagrant i.e virtualbox  by  adding below 
         environment variable.
                 VAGRANT_DEFAULT_PROVIDER= azure 
