@@ -47,9 +47,9 @@ Note:
 Steps  to create SSL Certificate:
 
 	Once the vm is up in azure and the endpoints are configured as expected. 
-        Navigating to the cloud service as below
-        Ex: https:\\vagtest.cloudapp.net:5986 
-        will download a certificate which should to be included in host machine in trusted host Certificates. 
+        Open the cloud service in the browser as below
+        Ex: https://vagtest.cloudapp.net:5986 
+        it will download a certificate which should to be included in host machine in trusted host Certificates. 
         This is a SSL Certificate which is required for basic file transfer, provisioning and rsync which also works based on file transfer mechanism.
 
 
