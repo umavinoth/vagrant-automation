@@ -1,6 +1,7 @@
 Vagrant-automation
 ==================
 Vagrant Setup:
+
         Install Vagrant 1.5.3 msi                
         Override the default provider of Vagrant i.e virtualbox  by  adding below 
         environment variable
@@ -14,12 +15,14 @@ Vagrant Setup:
         Create a box file for azure provider and add the box to the vagrant.
 
 Gradle Setup:
+
         Install Java JDK  and set following environment variable.
              JAVA_HOME = C:\Program Files\Java\jdk1.6.0_45\
         Install Gradle and set following environment variable.
              GRADLE_HOME = C:\gradle-1.12\bin
 
 Steps to Run Vagrant-Gradle Acceptance Test:
+
         Download Vagrant-Automation code for acceptance testing.
         Unzip the folder and modify the  vagrant.groovy file as below
         @Input
@@ -32,14 +35,17 @@ Steps to Run Vagrant-Gradle Acceptance Test:
              gradlew vagrantWindowsTest : This command will start the vagrant automation by executing various vagrant         commands in a sequential order.
                 
 File Dependencies:
+
         Include gradle directory, gradlew.bat and gradlew files from following link
         https://github.com/bmuschko/gradle-in-action-source
         to vagrant-gradle-wrapper directory in the source 
         
 Note:
+
         SSL Certificate has to be added manually for provision to work as expected.   
         
 Steps  to create SSL Certificate:
+
 	Once the vm is up in azure and the endpoints are configured as expected. 
         Navigating to the cloud service as below
         Ex: https:\\vagtest.cloudapp.net:5986 
