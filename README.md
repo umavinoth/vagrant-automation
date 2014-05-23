@@ -40,7 +40,7 @@ File Dependencies:
         Cd to the path where build.gradle file is located.
         Execute following Commands    
              gradlew wrapper : This will build all the required files.
-             gradlew vagrantWindowsTest : This command will start the vagrant automation by executing various vagrant         commands in a sequential order.
+             gradlew vagrantTests : This command will start the vagrant automation by executing various vagrant         commands in a sequential order.
 
         
 Note:
