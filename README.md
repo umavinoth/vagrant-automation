@@ -40,6 +40,13 @@ Vagrant-Gradle Acceptance Test:
 			executing various vagrant commands in a sequential order.
 	
 	
+File Dependencies:
+
+	Include gradle directory, gradlew.bat and gradlew files from following link
+	https://github.com/bmuschko/gradle-in-action-source
+	to vagrant-gradle-wrapper directory in the source
+
+	
 Note:
 
 	SSL Certificate has to be added manually for provision to work as expected.
