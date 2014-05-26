@@ -4,15 +4,14 @@ ext.targetedVagrantProjectDir = file('../vagrant-azure')
 
 task vagrantUp(type: Vagrant) {
     commands = ['up']
-    dir = targetedVagrantProjectDir
-	
+    dir = targetedVagrantProjectDir	
 }
 
 task vagrantReload(type: Vagrant) {
     commands = ['reload']
     dir = targetedVagrantProjectDir
 }
-vagrantReload.depensOn vagrantUp
+vagrantReload.dependsOn vagrantUp
 
 task vagrantSshConfig(type: Vagrant) {
     commands = ['ssh-config']
@@ -23,13 +22,14 @@ task vagrantStatus(type: Vagrant) {
     commands = ['status']
     dir = targetedVagrantProjectDir
 }
-vagrantStatus.depensOn vagrantReload
+vagrantStatus.dependsOn vagrantReload
 
 task vagrantProvision(type: Vagrant) {
     commands = ['provision']
     dir = targetedVagrantProjectDir
 }
-vagrantProvision.depensOn vagrantStatus
+
+
 task vagrantSuspend(type: Vagrant) {
     commands = ['suspend']
     dir = targetedVagrantProjectDir
@@ -40,25 +40,40 @@ task vagrantResume(type: Vagrant) {
     dir = targetedVagrantProjectDir
 }
 
-vagrantRdp.dependsOn vagrantProvision
+task vagrantWindowsTest(type: Vagrant) {
+    commands = ['halt']
+    dir = targetedVagrantProjectDir
+}
 
 
 task vagrantRdp(type: Vagrant) {
     commands = ['rdp']
     dir = targetedVagrantProjectDir
 }
-vagrantHalt.dependsOn vagrantRdp
 
+vagrantRdp.dependsOn vagrantStatus
 
-task vagrantHalt(type: Vagrant) {
-    commands = ['halt']
+vagrantProvision.dependsOn vagrantRdp
+
+vagrantWindowsTest.dependsOn vagrantProvision
+
+task vagrantDestroy(type: Vagrant){
+	commands = ['destroy', '--force']
+	dir = targetedVagrantProjectDir
+}
+
+task vagrantRsync(type: Vagrant) {
+    commands = ['rsync']
     dir = targetedVagrantProjectDir
 }
-task vagrantTests(type: Vagrant){
-		commands = ['destroy', '--force']
-		dir = targetedVagrantProjectDir
+vagrantRsync.dependsOn vagrantUp
+
+task vagrantLinuxTest(type: Vagrant) {
+    commands = ['ssh']
+    dir = targetedVagrantProjectDir
 }
-vagrantTests.dependsOn vagrantHalt
+vagrantSshConfig.dependsOn vagrantRsync
+vagrantLinuxTest.dependsOn vagrantSshConfig
 
 
 
