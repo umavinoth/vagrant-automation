@@ -3,7 +3,7 @@ Vagrant-automation
 Vagrant Setup:
 
         Install Vagrant 1.5.3 msi. 
-        Install Ruby 2.0.0 and corresponding devkit.
+        Install Ruby 2.0.0 and corresponding devkit. Make sure Environment variable is set for the same.
         Override the default provider of Vagrant i.e virtualbox  by  adding below 
         environment variable.
                 VAGRANT_DEFAULT_PROVIDER= azure 
@@ -27,6 +27,7 @@ Steps to Run Vagrant-Gradle Acceptance Test:
         Unzip the folder and modify the  vagrant.groovy file as below
         @Input
         static final String VAGRANT_EXECUTABLE = 'vagrant executable path' /* Ex:C:\\Hashicorp\\Vagrant\\bin\\vagrant.exe'
+        Make appropriate changes to the vagrantfile to fit in your changes.
         Include the path where vagrantfile resides in build.gradle file.
              ext.targetedVagrantProjectDir = file('../vagrant-azure')
         Create a box file for azure provider and add the box to the vagrant.
